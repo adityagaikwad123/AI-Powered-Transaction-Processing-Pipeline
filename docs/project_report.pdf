@@ -1,0 +1,394 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1799 >>
+stream
+0.059 0.463 0.431 rg
+0.00 0.00 595.00 842.00 re f
+0.090 0.126 0.200 rg
+0.00 0.00 595.00 210.00 re f
+1.000 1.000 1.000 rg
+BT /F2 10 Tf 1 0 0 1 54.00 710.00 Tm (BACKEND AND DEVOPS ASSIGNMENT REPORT) Tj ET
+BT /F2 30 Tf 1 0 0 1 54.00 640.00 Tm (AI-Powered Transaction) Tj ET
+BT /F2 30 Tf 1 0 0 1 54.00 604.00 Tm (Processing Pipeline) Tj ET
+BT /F1 12 Tf 1 0 0 1 54.00 560.00 Tm (FastAPI, PostgreSQL, Redis, Celery, Docker Compose, and LLM-compatible enrichment) Tj ET
+0.964 0.972 0.984 rg
+54.00 410.00 154.33 78.00 re f
+0.847 0.871 0.910 RG
+54.00 410.00 154.33 78.00 re S
+0.067 0.369 0.349 rg
+BT /F2 12 Tf 1 0 0 1 64.00 468.00 Tm (Async) Tj ET
+0.090 0.126 0.200 rg
+BT /F1 8 Tf 1 0 0 1 64.00 450.00 Tm (Uploads return immediately) Tj ET
+BT /F1 8 Tf 1 0 0 1 64.00 439.00 Tm (while Celery performs) Tj ET
+BT /F1 8 Tf 1 0 0 1 64.00 428.00 Tm (background processing.) Tj ET
+0.964 0.972 0.984 rg
+220.33 410.00 154.33 78.00 re f
+0.847 0.871 0.910 RG
+220.33 410.00 154.33 78.00 re S
+0.067 0.369 0.349 rg
+BT /F2 12 Tf 1 0 0 1 230.33 468.00 Tm (Durable) Tj ET
+0.090 0.126 0.200 rg
+BT /F1 8 Tf 1 0 0 1 230.33 450.00 Tm (Jobs, transactions,) Tj ET
+BT /F1 8 Tf 1 0 0 1 230.33 439.00 Tm (anomalies, and summaries) Tj ET
+BT /F1 8 Tf 1 0 0 1 230.33 428.00 Tm (persist in PostgreSQL.) Tj ET
+0.964 0.972 0.984 rg
+386.67 410.00 154.33 78.00 re f
+0.847 0.871 0.910 RG
+386.67 410.00 154.33 78.00 re S
+0.067 0.369 0.349 rg
+BT /F2 12 Tf 1 0 0 1 396.67 468.00 Tm (LLM Ready) Tj ET
+0.090 0.126 0.200 rg
+BT /F1 8 Tf 1 0 0 1 396.67 450.00 Tm (Deterministic fallback by) Tj ET
+BT /F1 8 Tf 1 0 0 1 396.67 439.00 Tm (default with Gemini and) Tj ET
+BT /F1 8 Tf 1 0 0 1 396.67 428.00 Tm (Ollama paths.) Tj ET
+BT /F1 9 Tf 1 0 0 1 54.00 116.00 Tm (Prepared for project review | Generated from repository source | Date: 19 June 2026) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 5240 >>
+stream
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 788.00 Tm (Executive Summary) Tj ET
+0.059 0.463 0.431 RG
+54.00 779.00 m 541.00 779.00 l S
+0.090 0.126 0.200 rg
+BT /F1 10 Tf 1 0 0 1 54.00 754.00 Tm (This project implements an end-to-end backend pipeline that accepts financial transaction) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 740.00 Tm (CSV uploads, processes them asynchronously, and exposes job status and final results through) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 726.00 Tm (a REST API.) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 704.00 Tm (The system is designed for reviewer-friendly execution with Docker Compose. Running docker) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 690.00 Tm (compose up --build starts the API, worker, PostgreSQL database, and Redis broker without) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 676.00 Tm (requiring local Python setup or manual database creation for the default path.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 654.00 Tm (Problem Statement) Tj ET
+0.059 0.463 0.431 RG
+54.00 645.00 m 541.00 645.00 l S
+0.090 0.126 0.200 rg
+BT /F1 10 Tf 1 0 0 1 54.00 620.00 Tm (Financial transaction exports are often inconsistent: dates appear in mixed formats, amounts) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 606.00 Tm (contain symbols or separators, categories can be missing, records may be duplicated, and) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 592.00 Tm (suspicious transactions need to be highlighted for review. This project converts raw CSV) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 578.00 Tm (input into normalized, queryable, and review-ready transaction intelligence.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 556.00 Tm (System Architecture) Tj ET
+0.059 0.463 0.431 RG
+54.00 547.00 m 541.00 547.00 l S
+0.090 0.126 0.200 rg
+0.067 0.369 0.349 rg
+54.00 504.00 487.00 24.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 1 0 0 1 59.00 513.00 Tm (Component) Tj ET
+BT /F2 9 Tf 1 0 0 1 194.00 513.00 Tm (Responsibility) Tj ET
+0.090 0.126 0.200 rg
+0.972 0.980 0.992 rg
+54.00 470.00 487.00 34.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 470.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 470.00 135.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 489.00 Tm (FastAPI API) Tj ET
+0.847 0.871 0.910 RG
+189.00 470.00 352.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 194.00 489.00 Tm (Validates CSV uploads, creates jobs, queues tasks, and) Tj ET
+BT /F1 8 Tf 1 0 0 1 194.00 477.00 Tm (serves status/results.) Tj ET
+0.847 0.871 0.910 RG
+54.00 436.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 436.00 135.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 455.00 Tm (PostgreSQL) Tj ET
+0.847 0.871 0.910 RG
+189.00 436.00 352.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 194.00 455.00 Tm (Stores job metadata, cleaned transactions, anomaly) Tj ET
+BT /F1 8 Tf 1 0 0 1 194.00 443.00 Tm (details, and summary payloads.) Tj ET
+0.972 0.980 0.992 rg
+54.00 412.00 487.00 24.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 412.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 412.00 135.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 421.00 Tm (Redis) Tj ET
+0.847 0.871 0.910 RG
+189.00 412.00 352.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 194.00 421.00 Tm (Acts as the Celery broker and result backend.) Tj ET
+0.847 0.871 0.910 RG
+54.00 378.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 378.00 135.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 397.00 Tm (Celery Worker) Tj ET
+0.847 0.871 0.910 RG
+189.00 378.00 352.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 194.00 397.00 Tm (Runs cleaning, anomaly detection, category classification,) Tj ET
+BT /F1 8 Tf 1 0 0 1 194.00 385.00 Tm (and summary generation.) Tj ET
+0.972 0.980 0.992 rg
+54.00 344.00 487.00 34.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 344.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 344.00 135.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 363.00 Tm (LLM Client) Tj ET
+0.847 0.871 0.910 RG
+189.00 344.00 352.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 194.00 363.00 Tm (Provides deterministic fallback plus Gemini and Ollama) Tj ET
+BT /F1 8 Tf 1 0 0 1 194.00 351.00 Tm (integration paths.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 328.00 Tm (Request Lifecycle) Tj ET
+0.059 0.463 0.431 RG
+54.00 319.00 m 541.00 319.00 l S
+0.090 0.126 0.200 rg
+BT /F2 10 Tf 1 0 0 1 58.00 294.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 294.00 Tm (Client uploads a CSV to POST /jobs/upload.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 278.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 278.00 Tm (The API validates file type and UTF-8 content, creates a pending job, and enqueues a) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 264.00 Tm (Celery task.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 248.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 248.00 Tm (The worker marks the job as processing, cleans rows, detects anomalies, and classifies) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 234.00 Tm (missing categories.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 218.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 218.00 Tm (The worker stores cleaned transactions and a summary in PostgreSQL.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 202.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 202.00 Tm (The client polls status or reads full output from GET /jobs/{job_id}/results.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 186.00 Tm (API Surface) Tj ET
+0.059 0.463 0.431 RG
+54.00 177.00 m 541.00 177.00 l S
+0.090 0.126 0.200 rg
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 6290 >>
+stream
+0.067 0.369 0.349 rg
+54.00 770.00 487.00 24.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 1 0 0 1 59.00 779.00 Tm (Endpoint) Tj ET
+BT /F2 9 Tf 1 0 0 1 229.00 779.00 Tm (Purpose) Tj ET
+0.090 0.126 0.200 rg
+0.972 0.980 0.992 rg
+54.00 746.00 487.00 24.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 746.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 746.00 170.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 755.00 Tm (GET /health) Tj ET
+0.847 0.871 0.910 RG
+224.00 746.00 317.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 229.00 755.00 Tm (Confirms API availability.) Tj ET
+0.847 0.871 0.910 RG
+54.00 722.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 722.00 170.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 731.00 Tm (POST /jobs/upload) Tj ET
+0.847 0.871 0.910 RG
+224.00 722.00 317.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 229.00 731.00 Tm (Accepts a CSV and starts asynchronous processing.) Tj ET
+0.972 0.980 0.992 rg
+54.00 698.00 487.00 24.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 698.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 698.00 170.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 707.00 Tm (GET /jobs) Tj ET
+0.847 0.871 0.910 RG
+224.00 698.00 317.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 229.00 707.00 Tm (Lists submitted jobs, optionally filtered by status.) Tj ET
+0.847 0.871 0.910 RG
+54.00 674.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 674.00 170.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 683.00 Tm (GET /jobs/{job_id}/status) Tj ET
+0.847 0.871 0.910 RG
+224.00 674.00 317.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 229.00 683.00 Tm (Returns current state and summary once available.) Tj ET
+0.972 0.980 0.992 rg
+54.00 640.00 487.00 34.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 640.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 640.00 170.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 659.00 Tm (GET /jobs/{job_id}/results) Tj ET
+0.847 0.871 0.910 RG
+224.00 640.00 317.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 229.00 659.00 Tm (Returns cleaned transactions, anomalies, category) Tj ET
+BT /F1 8 Tf 1 0 0 1 229.00 647.00 Tm (spend, and LLM summary.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 624.00 Tm (Data Processing Logic) Tj ET
+0.059 0.463 0.431 RG
+54.00 615.00 m 541.00 615.00 l S
+0.090 0.126 0.200 rg
+0.964 0.972 0.984 rg
+54.00 512.00 237.50 78.00 re f
+0.847 0.871 0.910 RG
+54.00 512.00 237.50 78.00 re S
+0.067 0.369 0.349 rg
+BT /F2 12 Tf 1 0 0 1 64.00 570.00 Tm (Cleaning) Tj ET
+0.090 0.126 0.200 rg
+BT /F1 8 Tf 1 0 0 1 64.00 552.00 Tm (Drops duplicates, parses three date) Tj ET
+BT /F1 8 Tf 1 0 0 1 64.00 541.00 Tm (formats, normalizes amounts, uppercases) Tj ET
+BT /F1 8 Tf 1 0 0 1 64.00 530.00 Tm (status/currency, and marks blank) Tj ET
+BT /F1 8 Tf 1 0 0 1 64.00 519.00 Tm (categories.) Tj ET
+0.964 0.972 0.984 rg
+303.50 512.00 237.50 78.00 re f
+0.847 0.871 0.910 RG
+303.50 512.00 237.50 78.00 re S
+0.067 0.369 0.349 rg
+BT /F2 12 Tf 1 0 0 1 313.50 570.00 Tm (Anomaly Detection) Tj ET
+0.090 0.126 0.200 rg
+BT /F1 8 Tf 1 0 0 1 313.50 552.00 Tm (Flags 3x account median amounts, USD use) Tj ET
+BT /F1 8 Tf 1 0 0 1 313.50 541.00 Tm (at domestic-only merchants, and notes) Tj ET
+BT /F1 8 Tf 1 0 0 1 313.50 530.00 Tm (mentioning suspicious activity.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 496.00 Tm (LLM and Fallback Strategy) Tj ET
+0.059 0.463 0.431 RG
+54.00 487.00 m 541.00 487.00 l S
+0.090 0.126 0.200 rg
+BT /F1 10 Tf 1 0 0 1 54.00 462.00 Tm (The project uses an LLM-compatible client for category classification and summary) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 448.00 Tm (generation. Docker Compose sets LLM_PROVIDER=fallback, so the default run is deterministic) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 434.00 Tm (and does not require network access or API keys. External providers retry up to three times) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 420.00 Tm (with exponential backoff.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 398.00 Tm (Database Design) Tj ET
+0.059 0.463 0.431 RG
+54.00 389.00 m 541.00 389.00 l S
+0.090 0.126 0.200 rg
+0.067 0.369 0.349 rg
+54.00 346.00 487.00 24.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 1 0 0 1 59.00 355.00 Tm (Table) Tj ET
+BT /F2 9 Tf 1 0 0 1 199.00 355.00 Tm (Purpose) Tj ET
+0.090 0.126 0.200 rg
+0.972 0.980 0.992 rg
+54.00 322.00 487.00 24.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 322.00 487.00 24.00 re S
+0.847 0.871 0.910 RG
+54.00 322.00 140.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 331.00 Tm (jobs) Tj ET
+0.847 0.871 0.910 RG
+194.00 322.00 347.00 24.00 re S
+BT /F1 8 Tf 1 0 0 1 199.00 331.00 Tm (Tracks lifecycle and metadata for each uploaded CSV.) Tj ET
+0.847 0.871 0.910 RG
+54.00 288.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 288.00 140.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 307.00 Tm (transactions) Tj ET
+0.847 0.871 0.910 RG
+194.00 288.00 347.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 199.00 307.00 Tm (Stores each cleaned transaction linked to its job,) Tj ET
+BT /F1 8 Tf 1 0 0 1 199.00 295.00 Tm (including anomaly and LLM fields.) Tj ET
+0.972 0.980 0.992 rg
+54.00 254.00 487.00 34.00 re f
+0.090 0.126 0.200 rg
+0.847 0.871 0.910 RG
+54.00 254.00 487.00 34.00 re S
+0.847 0.871 0.910 RG
+54.00 254.00 140.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 59.00 273.00 Tm (job_summaries) Tj ET
+0.847 0.871 0.910 RG
+194.00 254.00 347.00 34.00 re S
+BT /F1 8 Tf 1 0 0 1 199.00 273.00 Tm (Stores totals, top merchants, risk level, category spend,) Tj ET
+BT /F1 8 Tf 1 0 0 1 199.00 261.00 Tm (and raw summary JSON.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 238.00 Tm (Deployment and Operations) Tj ET
+0.059 0.463 0.431 RG
+54.00 229.00 m 541.00 229.00 l S
+0.090 0.126 0.200 rg
+BT /F1 10 Tf 1 0 0 1 54.00 204.00 Tm (The full stack is defined in docker-compose.yml. The API and worker share the application) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 190.00 Tm (image, while PostgreSQL and Redis use official Alpine images. PostgreSQL includes a health) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 176.00 Tm (check so dependent services wait for the database before starting.) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 154.00 Tm (Primary run command: docker compose up --build) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 132.00 Tm (Clean reset: docker compose down -v, then docker compose up --build) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 110.00 Tm (Testing and Quality) Tj ET
+0.059 0.463 0.431 RG
+54.00 101.00 m 541.00 101.00 l S
+0.090 0.126 0.200 rg
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 2863 >>
+stream
+BT /F1 10 Tf 1 0 0 1 54.00 788.00 Tm (The repository includes a focused processing test that validates duplicate removal, date) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 774.00 Tm (parsing, currency/status normalization, fallback category classification, and anomaly) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 760.00 Tm (detection.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 738.00 Tm (Strengths) Tj ET
+0.059 0.463 0.431 RG
+54.00 729.00 m 541.00 729.00 l S
+0.090 0.126 0.200 rg
+BT /F2 10 Tf 1 0 0 1 58.00 704.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 704.00 Tm (Clear separation between API request handling and background processing.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 688.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 688.00 Tm (Dockerized reviewer experience with minimal setup friction.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 672.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 672.00 Tm (Durable job and result storage instead of in-memory state.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 656.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 656.00 Tm (Deterministic fallback behavior for reliable local demonstrations.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 640.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 640.00 Tm (Human-readable anomaly explanations preserved in the output model.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 624.00 Tm (Future Enhancements) Tj ET
+0.059 0.463 0.431 RG
+54.00 615.00 m 541.00 615.00 l S
+0.090 0.126 0.200 rg
+BT /F2 10 Tf 1 0 0 1 58.00 590.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 590.00 Tm (Add Alembic migrations for production-grade schema evolution.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 574.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 574.00 Tm (Add authentication and per-user job isolation.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 558.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 558.00 Tm (Improve anomaly scoring with merchant, account, and time-window baselines.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 542.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 542.00 Tm (Add API-level integration tests with a test database and worker execution path.) Tj ET
+BT /F2 10 Tf 1 0 0 1 58.00 526.00 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 72.00 526.00 Tm (Add observability through structured logs, metrics, and task tracing.) Tj ET
+0.067 0.369 0.349 rg
+BT /F2 18 Tf 1 0 0 1 54.00 510.00 Tm (Conclusion) Tj ET
+0.059 0.463 0.431 RG
+54.00 501.00 m 541.00 501.00 l S
+0.090 0.126 0.200 rg
+BT /F1 10 Tf 1 0 0 1 54.00 476.00 Tm (The AI-Powered Transaction Processing Pipeline demonstrates a practical backend architecture) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 462.00 Tm (for asynchronous financial data processing. It combines CSV normalization, anomaly) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 448.00 Tm (detection, LLM-compatible enrichment, persistent storage, and Docker-based deployment into a) Tj ET
+BT /F1 10 Tf 1 0 0 1 54.00 434.00 Tm (cohesive system that is easy to run and evaluate.) Tj ET
+endstream
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000139 00000 n 
+0000000378 00000 n 
+0000002229 00000 n 
+0000002468 00000 n 
+0000007760 00000 n 
+0000007999 00000 n 
+0000014341 00000 n 
+0000014581 00000 n 
+trailer << /Size 11 /Root 1 0 R >>
+startxref
+17497
+%%EOF

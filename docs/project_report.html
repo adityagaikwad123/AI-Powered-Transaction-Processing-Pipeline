@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI-Powered Transaction Processing Pipeline - Project Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 22mm 18mm;
+    }
+
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --panel: #f6f8fb;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --gold: #b7791f;
+      --red: #b42318;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10.6pt;
+      line-height: 1.5;
+      background: #ffffff;
+    }
+
+    .cover {
+      min-height: 88vh;
+      padding: 34mm 22mm 20mm;
+      color: #ffffff;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.95), rgba(23, 32, 51, 0.96)),
+        radial-gradient(circle at 86% 16%, rgba(255, 255, 255, 0.22), transparent 24%),
+        radial-gradient(circle at 16% 86%, rgba(183, 121, 31, 0.28), transparent 26%);
+      page-break-after: always;
+    }
+
+    .eyebrow {
+      margin-bottom: 18mm;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 150mm;
+      margin: 0;
+      font-size: 31pt;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 140mm;
+      margin: 10mm 0 18mm;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13pt;
+      line-height: 1.45;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+      max-width: 155mm;
+      margin-top: 22mm;
+    }
+
+    .cover-stat {
+      min-height: 28mm;
+      padding: 5mm;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .cover-stat strong {
+      display: block;
+      margin-bottom: 2mm;
+      color: #ffffff;
+      font-size: 15pt;
+    }
+
+    .cover-stat span {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 9pt;
+    }
+
+    .meta {
+      margin-top: 24mm;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 9.5pt;
+    }
+
+    main {
+      padding: 0 2mm;
+    }
+
+    h2 {
+      margin: 0 0 6mm;
+      padding-bottom: 2mm;
+      color: var(--accent-dark);
+      font-size: 18pt;
+      border-bottom: 2px solid var(--accent);
+      page-break-after: avoid;
+    }
+
+    h3 {
+      margin: 9mm 0 3mm;
+      color: var(--ink);
+      font-size: 13pt;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 4mm;
+    }
+
+    section {
+      margin-bottom: 10mm;
+      page-break-inside: avoid;
+    }
+
+    .lead {
+      color: #334155;
+      font-size: 12pt;
+    }
+
+    .callout {
+      margin: 6mm 0;
+      padding: 5mm 6mm;
+      border-left: 4px solid var(--accent);
+      background: var(--panel);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7mm;
+    }
+
+    .card {
+      padding: 5mm;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      margin: 5mm 0 7mm;
+      border-collapse: collapse;
+      page-break-inside: avoid;
+    }
+
+    th,
+    td {
+      padding: 3mm;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #ffffff;
+      background: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    ul,
+    ol {
+      margin: 2mm 0 5mm 6mm;
+      padding-left: 5mm;
+    }
+
+    li {
+      margin: 1.5mm 0;
+    }
+
+    code {
+      padding: 0.5mm 1mm;
+      border-radius: 3px;
+      color: #1f2937;
+      background: #eef2f7;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 9.5pt;
+    }
+
+    pre {
+      margin: 4mm 0 6mm;
+      padding: 4mm;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      color: #e5e7eb;
+      background: #111827;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 9pt;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2mm;
+      margin: 5mm 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 1.5mm 3mm;
+      border: 1px solid #99f6e4;
+      border-radius: 999px;
+      color: #0f766e;
+      background: #ecfdf5;
+      font-size: 9pt;
+      font-weight: 700;
+    }
+
+    .diagram {
+      width: 100%;
+      max-height: 105mm;
+      object-fit: contain;
+      margin: 4mm 0 3mm;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    .caption {
+      color: var(--muted);
+      font-size: 9pt;
+      text-align: center;
+    }
+
+    .risk {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .footer-note {
+      margin-top: 10mm;
+      padding-top: 4mm;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="eyebrow">Backend and DevOps Assignment Report</div>
+    <h1>AI-Powered Transaction Processing Pipeline</h1>
+    <p class="subtitle">
+      A containerized FastAPI, PostgreSQL, Redis, and Celery system for cleaning dirty transaction CSV files,
+      detecting anomalies, classifying missing categories, and producing structured spending summaries.
+    </p>
+    <div class="cover-grid">
+      <div class="cover-stat">
+        <strong>Async</strong>
+        <span>Uploads return immediately while Celery performs background processing.</span>
+      </div>
+      <div class="cover-stat">
+        <strong>Durable</strong>
+        <span>Jobs, transactions, anomalies, and summaries are persisted in PostgreSQL.</span>
+      </div>
+      <div class="cover-stat">
+        <strong>LLM Ready</strong>
+        <span>Deterministic fallback by default, with Gemini and Ollama integration paths.</span>
+      </div>
+    </div>
+    <p class="meta">
+      Prepared for project review | Generated from repository source | Date: 19 June 2026
+    </p>
+  </div>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p class="lead">
+        This project implements an end-to-end backend pipeline that accepts financial transaction CSV uploads,
+        processes them asynchronously, and exposes job status and final results through a REST API.
+      </p>
+      <p>
+        The system is designed for reviewer-friendly execution with Docker Compose. Running
+        <code>docker compose up --build</code> starts the API, worker, PostgreSQL database, and Redis broker
+        without requiring local Python setup, manual database creation, or environment files for the default path.
+      </p>
+      <div class="badge-row">
+        <span class="badge">FastAPI</span>
+        <span class="badge">Celery</span>
+        <span class="badge">Redis</span>
+        <span class="badge">PostgreSQL 16</span>
+        <span class="badge">SQLAlchemy</span>
+        <span class="badge">Docker Compose</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Problem Statement</h2>
+      <p>
+        Financial transaction exports are often inconsistent: dates appear in mixed formats, amounts contain
+        symbols or separators, categories can be missing, records may be duplicated, and suspicious transactions
+        need to be highlighted for review. The objective of this project is to convert such raw CSV input into
+        normalized, queryable, and review-ready transaction intelligence.
+      </p>
+      <div class="callout">
+        <strong>Core outcome:</strong> The pipeline transforms messy CSV uploads into cleaned transactions,
+        anomaly flags, category-level spend, and a narrative summary that can be consumed through API endpoints.
+      </div>
+    </section>
+
+    <section>
+      <h2>System Architecture</h2>
+      <img class="diagram" src="architecture.png" alt="Architecture diagram">
+      <p class="caption">Figure 1: Queue-backed transaction processing architecture.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Responsibility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FastAPI API</td>
+            <td>Validates CSV uploads, creates jobs, queues processing tasks, and serves job status/results.</td>
+          </tr>
+          <tr>
+            <td>PostgreSQL</td>
+            <td>Stores job metadata, cleaned transaction rows, anomaly details, and summary payloads.</td>
+          </tr>
+          <tr>
+            <td>Redis</td>
+            <td>Acts as the Celery broker and result backend for asynchronous processing.</td>
+          </tr>
+          <tr>
+            <td>Celery Worker</td>
+            <td>Runs CSV cleaning, anomaly detection, category classification, and summary generation outside the request path.</td>
+          </tr>
+          <tr>
+            <td>LLM Client</td>
+            <td>Provides category classification and summary generation via deterministic fallback, Gemini, or Ollama.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Request Lifecycle</h2>
+      <ol>
+        <li>The client uploads a CSV to <code>POST /jobs/upload</code>.</li>
+        <li>The API validates the file type and UTF-8 content, creates a pending job, and enqueues a Celery task.</li>
+        <li>The worker marks the job as processing, cleans the CSV rows, detects anomalies, and classifies missing categories.</li>
+        <li>The worker stores cleaned transactions and a job summary in PostgreSQL.</li>
+        <li>The client polls <code>GET /jobs/{job_id}/status</code> or reads full output from <code>GET /jobs/{job_id}/results</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>API Surface</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Purpose</th>
+            <th>Response Highlights</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>GET /health</code></td>
+            <td>Confirms API availability.</td>
+            <td><code>{"status":"ok"}</code></td>
+          </tr>
+          <tr>
+            <td><code>POST /jobs/upload</code></td>
+            <td>Accepts a CSV and starts asynchronous processing.</td>
+            <td><code>job_id</code> and initial <code>pending</code> status.</td>
+          </tr>
+          <tr>
+            <td><code>GET /jobs</code></td>
+            <td>Lists submitted jobs, optionally filtered by status.</td>
+            <td>Job id, status, filename, row counts, creation time.</td>
+          </tr>
+          <tr>
+            <td><code>GET /jobs/{job_id}/status</code></td>
+            <td>Returns current state and summary once available.</td>
+            <td>Raw and cleaned row counts, error message, totals, risk level.</td>
+          </tr>
+          <tr>
+            <td><code>GET /jobs/{job_id}/results</code></td>
+            <td>Returns full processed output.</td>
+            <td>Cleaned transactions, flagged anomalies, category spend, LLM summary.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Data Processing Logic</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Cleaning Rules</h3>
+          <ul>
+            <li>Drops exact duplicate rows.</li>
+            <li>Parses <code>DD-MM-YYYY</code>, <code>YYYY/MM/DD</code>, and <code>YYYY-MM-DD</code> dates.</li>
+            <li>Removes dollar signs and comma separators from amounts.</li>
+            <li>Converts invalid or blank amounts to <code>0.00</code>.</li>
+            <li>Normalizes currency and status to uppercase.</li>
+            <li>Marks blank categories for classification.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Anomaly Rules</h3>
+          <ul>
+            <li>Flags account-level amounts greater than three times the account median.</li>
+            <li>Flags USD transactions at domestic-only merchants such as Swiggy, Ola, IRCTC, Zomato, and Jio Recharge.</li>
+            <li>Flags notes that mention suspicious activity.</li>
+            <li>Stores human-readable anomaly reasons on each transaction.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>LLM and Fallback Strategy</h2>
+      <p>
+        The project uses an LLM-compatible client for category classification and summary generation. Docker Compose
+        sets <code>LLM_PROVIDER=fallback</code>, so the default run is deterministic and does not require network
+        access or API keys. The same interface supports Gemini and Ollama through configuration.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Implementation Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Classification</td>
+            <td>Missing categories are batched, classified against an allowed set, and invalid labels are mapped to <code>Other</code>.</td>
+          </tr>
+          <tr>
+            <td>Summary</td>
+            <td>Produces spend totals by currency, top merchants, anomaly count, narrative text, and risk level.</td>
+          </tr>
+          <tr>
+            <td>Resilience</td>
+            <td>External calls retry up to three times with exponential backoff. Failed classifications are preserved with <code>llm_failed</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Database Design</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Table</th>
+            <th>Key Fields</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>jobs</code></td>
+            <td><code>id</code>, <code>filename</code>, <code>status</code>, row counts, timestamps, error message</td>
+            <td>Tracks lifecycle and execution metadata for each uploaded CSV.</td>
+          </tr>
+          <tr>
+            <td><code>transactions</code></td>
+            <td>Merchant, amount, currency, status, category, anomaly fields, LLM metadata</td>
+            <td>Stores each cleaned transaction linked to its job.</td>
+          </tr>
+          <tr>
+            <td><code>job_summaries</code></td>
+            <td>Total spend, top merchants, risk level, category spend, raw summary JSON</td>
+            <td>Stores aggregated output and narrative summary for fast retrieval.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        SQLAlchemy metadata initializes the database tables at application startup, which keeps the assignment
+        simple to run from a clean Docker volume.
+      </p>
+    </section>
+
+    <section>
+      <h2>Deployment and Operations</h2>
+      <p>
+        The full stack is defined in <code>docker-compose.yml</code>. The API and worker use the same application image,
+        while PostgreSQL and Redis run from official Alpine images. PostgreSQL includes a health check so the API and
+        worker wait for the database before starting.
+      </p>
+      <pre>docker compose up --build</pre>
+      <p>
+        For a clean reset, the persisted database volume can be removed and recreated:
+      </p>
+      <pre>docker compose down -v
+docker compose up --build</pre>
+    </section>
+
+    <section>
+      <h2>Testing and Quality</h2>
+      <p>
+        The repository includes a focused processing test that validates duplicate removal, date parsing,
+        currency/status normalization, fallback category classification, and anomaly detection. This covers the
+        riskiest core transformation behavior in <code>app/processing.py</code>.
+      </p>
+      <div class="callout">
+        Recommended verification command: <code>pytest</code>
+      </div>
+    </section>
+
+    <section>
+      <h2>Strengths</h2>
+      <ul>
+        <li>Clear service separation between API request handling and background processing.</li>
+        <li>Dockerized reviewer experience with minimal setup friction.</li>
+        <li>Durable job and result storage instead of in-memory state.</li>
+        <li>Deterministic fallback behavior for reliable local demonstrations.</li>
+        <li>Human-readable anomaly explanations preserved in the output model.</li>
+        <li>Extensible provider pattern for external LLM integrations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Future Enhancements</h2>
+      <ul>
+        <li>Add Alembic migrations for production-grade schema evolution.</li>
+        <li>Add authentication and per-user job isolation.</li>
+        <li>Improve anomaly scoring with merchant, account, and time-window baselines.</li>
+        <li>Add API-level integration tests with a test database and worker execution path.</li>
+        <li>Add observability through structured logs, metrics, and task tracing.</li>
+        <li>Expose downloadable CSV or JSON reports for completed jobs.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        The AI-Powered Transaction Processing Pipeline demonstrates a practical backend architecture for asynchronous
+        financial data processing. It combines robust CSV normalization, anomaly detection, LLM-compatible enrichment,
+        persistent storage, and Docker-based deployment into a cohesive system that is easy to run and evaluate.
+      </p>
+      <p class="footer-note">
+        Source files referenced: <code>app/main.py</code>, <code>app/worker.py</code>, <code>app/processing.py</code>,
+        <code>app/llm.py</code>, <code>app/models.py</code>, <code>docker-compose.yml</code>, and <code>tests/test_processing.py</code>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
